@@ -7,13 +7,13 @@ function WeeklyTrend(props){
     const hospData = props.hospData
     const { pastWeek} = useContext(AppContext)
     const dData = pastWeek.map((d) =>{
-        return {x:  d.date, y: d.death}
+        return {x:  d.date, y: d.deathIncrease}
     })
     const iData = pastWeek.map((d)=>{
-        return {x: d.date, y: d.positive}
+        return {x: d.date, y: d.positiveIncrease}
     })
     const hData = pastWeek.map((d) =>{
-        return {x: d.date, y: d.hospitalized}
+        return {x: d.date, y: d.hospitalizedIncrease}
     })
     return(
         <div>
@@ -31,18 +31,13 @@ function WeeklyTrend(props){
                 line: {stroke: '#ADDDE1'},
                 ticks: {stroke: '#ADDDE1'}}}
             />
-                <MarkSeries
-                animation
-                    data={iData}
-                    color="red"
-                    opacity='.5'
-                    />
-                                    {/* <MarkSeries
+
+                                    <MarkSeries
                 animation
                     data={dData}
                     color="blue"
                     opacity='.5'
-                    /> */}
+                    />
                                                      <MarkSeries
                 animation
                     data={hData}

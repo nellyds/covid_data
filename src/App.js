@@ -1,5 +1,5 @@
 import React, {useState, useMemo} from 'react'
-
+import './styles/app.css'
 import './App.css';
 import AppContextProvider from "./context/appContext"
 import Header from './layout/Header'
