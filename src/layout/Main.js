@@ -9,7 +9,7 @@ import Box from '@material-ui/core/Box';
 import Daily from '../pages/Daily'
 import World from '../pages/World'
 import Trends from "../pages/Trends"
-import UnitedStates from '../pages/UnitedStates'
+import State from '../pages/State'
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
     //main tab panel display 
@@ -80,7 +80,7 @@ export default function TabsWrappedLabel() {
      <World />
       </TabPanel>
       <TabPanel value={value} index="three">
-    <UnitedStates />
+    <State />
       </TabPanel>
       <TabPanel value={value} index="four">
         <Trends />

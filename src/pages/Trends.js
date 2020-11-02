@@ -1,7 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react'
 import {AppContext} from "../context/appContext";
-import { getField} from "../Util/DataParseMethods"
-import Number from "../components/Number"
 function Trends(){
 
     const {pastMonth} = useContext(AppContext)

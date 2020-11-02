@@ -1,7 +1,5 @@
 import React, {useState} from 'react'
 import axios from 'axios';
-import { fields } from "../Util/constants"
-import {getField, getAverage} from "../Util/DataParseMethods"
 export const AppContext = React.createContext();
 
 export default class AppContextProvider extends React.Component {
@@ -25,7 +23,6 @@ export default class AppContextProvider extends React.Component {
       getPastWeek = async () =>{
           const result = await axios.get('https://api.covidtracking.com/v1/us/daily.json').catch(error =>{console.log(error.message)})
           const week = result.data.splice(0,7);
-            getField(week, 'positive')
           this.setState({pastWeek: week})
       }
       getDaily = async () =>{

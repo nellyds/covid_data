@@ -40,6 +40,7 @@ function WeeklyTrend(props){
                     />
                                                      <MarkSeries
                 animation
+
                     data={hData}
                     color="green"
                     opacity='.5'
