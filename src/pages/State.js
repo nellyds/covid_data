@@ -7,9 +7,14 @@ export default function State() {
     const [selected, updateSelected] = useState([])
 
     const addToArray = () => {
-       if (!selected.includes(selectedState)){
+        if (!selected.includes(selectedState) && selected.length < 5) {
             updateSelected([...selected, selectedState])
-       }
+        }
+    }
+
+    const removeFromArray = (event) => {
+        console.log(event.target.textContent)
+        updateSelected(selected.filter(e => e !== event.target.textContent))
     }
 
     return (
@@ -17,7 +22,7 @@ export default function State() {
             <p>
                 {
                     selected.map(item => (
-                        <p key={item}>{item}</p>
+                        <p onClick={removeFromArray} key={item}>{item}</p>
                     ))
                 }
             </p>
