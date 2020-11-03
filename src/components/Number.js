@@ -9,7 +9,7 @@ function Number(props){
         if (fieldNumber < 100000000){
         animateCount(fieldName,fieldNumber -100,fieldNumber, 1000)
         }
-    })
+    },[])
 
 
     function animateCount(id, start, end, duration){

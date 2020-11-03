@@ -4,15 +4,13 @@ import { fields } from "../../Util/constants"
 import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
+import FormHelperText from '@material-ui/core/FormHelperText';
 const useStyles = makeStyles((theme) => ({
-    button: {
-      display: 'block',
-      marginTop: theme.spacing(2),
-    },
-    formControl: {
-      margin: theme.spacing(1),
-      minWidth: 120,
-    },
+
+    select: {
+        width: 300,
+        margin: 5
+    }
   }));
 
 function FieldSelect(props) {
@@ -23,9 +21,9 @@ function FieldSelect(props) {
     }
     return (
         <div>
-            <FormControl className={classes.formControl}>
-            <InputLabel>Field</InputLabel>
-            <Select
+            <FormControl >
+            <InputLabel>Data Field</InputLabel>
+            <Select 
                 value={dataField}
                 onChange={onSubmit}
             >
@@ -35,6 +33,7 @@ function FieldSelect(props) {
                     </option>
                 ))}
             </Select>
+            <FormHelperText>Select a data range.  </FormHelperText>
 </FormControl>
         </div>
     )

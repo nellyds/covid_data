@@ -24,10 +24,10 @@ function StateData(props){
     }
     return(
         <div>
-            <p>State Data</p>
 
-            <Button onClick={getAllStates} variant="outlined">Get Data</Button>
             <StateChart data={dataSets} />
+
+            <Button onClick={getAllStates} variant="outlined">Build Visualization</Button>
         </div>
     )
 }

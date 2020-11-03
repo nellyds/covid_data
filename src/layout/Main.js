@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Daily from '../pages/Daily'
 import UnitedStates from '../pages/UnitedStates'
-import Trends from "../pages/Trends"
+import About from "../pages/About"
 import State from '../pages/State'
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -70,7 +70,7 @@ export default function TabsWrappedLabel() {
           />
           <Tab value="two" label="United States" {...a11yProps('two')} />
           <Tab value="three" label="States" {...a11yProps('three')} />
-          <Tab value="four" label="Trends" {...a11yProps('four')} />
+          <Tab value="four" label="About" {...a11yProps('four')} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index="one">
@@ -83,7 +83,7 @@ export default function TabsWrappedLabel() {
     <State />
       </TabPanel>
       <TabPanel value={value} index="four">
-        <Trends />
+        <About />
       </TabPanel>
     </div>
   );

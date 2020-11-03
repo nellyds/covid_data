@@ -13,12 +13,18 @@ export const StatGrid = styled.div`
 @media (min-width: 1001px){
     display: flex;
     flex-direction: row;
+    content-align: center;
+justify-content: center;
+align-content: center;
 }
 `
 
 export const ChipGrid = styled.div`
 diplay: flex;
 flex-direction: row;
+content-align: center;
+justify-content: center;
+align-content: center;
 `
 
 export const WorldDiv =  styled.div`
@@ -26,8 +32,8 @@ export const WorldDiv =  styled.div`
 background-image: url(${img});
 background-size: cover;
 text-align: center;
-width: 400px;
-height: 300px;
+width: 90%;
+height: auto;
 }
 @media (min-width:416px) and (max-width: 1000px){
     background-image: url(${img});
@@ -50,4 +56,22 @@ background-image: url(${usImg});
 width: 500px;
 height: 500px;
 `
+
+export const DataPoint = styled.div`
+font-family: 'Roboto Mono';
+margin: 10px;
+font-size: 1.2em;
+`
+
+export const SelectForm = styled.div`
+display: flex;
+flex-direction: row;
+margin-left: 45%;
+padding: 10px;
+`
+
+export const ChartHolder = styled.div`
+margin-left: 10%;
+margin-top:10px;
+margin-bottom: 10px`
 

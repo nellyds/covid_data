@@ -5,37 +5,56 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,500;0,700;1,200&display=swap');
 
 body{
-    padding: 10px;
     font-family: 'Roboto Mono', monospace;
 }
 #root{
     font-family: 'Roboto Mono', monospace;
 }
+
+
+.statAverage{
+    font-family: 'Roboto Mono';
+}
+
+@media (min-width: 416px){
+    .number{
+        font-size: 3.5em;
+        font-family: 'Roboto Mono';
+        font-weight: bold;
+        
+    }
+    .statCard{
+        width: 350px;
+        padding: 10px;
+        background-color: rgba(184, 232, 255, 1);
+        font-family: 'Roboto Mono';
+        margin: 10px;
+    }
+    .statField{
+        font-size: 2.2em;
+        color: rgba(0,0,0,.5);
+        font-weight: bold;
+        position: absolute;
+    }
+}
+@media (max-width: 415px){
+.number{
+    font-size: 1.7em;
+    font-family: 'Roboto Mono';
+    font-weight: bold;
+}  
 .statCard{
-    width: 350px;
+    width: 90%;
+    margin-left: 5%;
     padding: 10px;
     background-color: rgba(184, 232, 255, 1);
     font-family: 'Roboto Mono';
     margin: 10px;
 }
-.statAverage{
-    font-family: 'Roboto Mono';
-}
-.inputLabel{
-    font-family: 'Roboto Mono';
-    font-size: 2.2em;
-
-}
 .statField{
     font-size: 2.2em;
     color: rgba(0,0,0,.5);
     font-weight: bold;
-    position: absolute;
-}
 
-.number{
-    font-size: 3.5em;
-    font-family: 'Roboto Mono';
-    font-weight: bold;
-    
+}
 }

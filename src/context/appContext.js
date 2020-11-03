@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import axios from 'axios';
+import {countryList} from "../Util/constants"
 export const AppContext = React.createContext();
 
 export default class AppContextProvider extends React.Component {
@@ -9,13 +10,16 @@ export default class AppContextProvider extends React.Component {
         current: null,
         pastWeek: [],
         pastMonth: [],
-        worldTotal: {}
+        worldTotal: {},
+        worldData: []
       }
       componentDidMount = () =>{
           this.getDaily();
           this.getPastWeek();
           this.getPastMonth();
           this.getWorldTotal();
+            this.getWorldData();
+          
       }
       getPastMonth = async () =>{
         const result = await axios.get('https://api.covidtracking.com/v1/us/daily.json').catch(error =>{console.log(error.message)})
@@ -34,8 +38,21 @@ export default class AppContextProvider extends React.Component {
       getWorldTotal = async () =>{
           const result = await axios.get('https://api.covid19api.com/world/total').catch(error =>{console.log(error.message)})
           this.setState({worldTotal: result.data})
-
       }
+      getWorldData = async () =>{
+          let calls = []
+          for (let i=0; i< 4; i++){
+            calls.push(this.getCountryData(countryList[i]))
+          }
+          Promise.all(calls).then(result =>{
+              this.setState({worldData: result})
+          })
+      }
+      getCountryData = async (country)=>{
+        let result = await axios.get('https://api.covid19api.com/live/country/'+country+'/status/confirmed')
+        return result.data[0]
+    }
+
     render(){
     return (
         <AppContext.Provider value={{...this.state}}>
