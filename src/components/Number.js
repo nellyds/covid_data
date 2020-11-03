@@ -6,8 +6,11 @@ function Number(props){
     const fieldName = props.field
     const fieldNumber = props.number
     useEffect(() =>{
+        if (fieldNumber < 100000000){
         animateCount(fieldName,fieldNumber -100,fieldNumber, 1000)
-    }, [fieldNumber, fieldName])
+        }
+    })
+
 
     function animateCount(id, start, end, duration){
             if (start === end || !animateActive) return;
@@ -24,16 +27,13 @@ function Number(props){
     }
     }, stepTime);
     }
-    function endAnimate(){
-        setActive(false)
-    } 
-    return(
-        <div onClick={endAnimate}>
-             <ScrollAnimation animateIn="fadeInRight">
-  
-                <p class="number"><span id={props.field} >0</span></p>
 
-            </ScrollAnimation>
+    return(
+        <div >
+
+  <p class="number"><span id={props.field} >{props.number}</span></p>
+
+
         </div>
     )
 }

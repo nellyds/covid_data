@@ -8,12 +8,14 @@ export default class AppContextProvider extends React.Component {
         dataReady: false,
         current: null,
         pastWeek: [],
-        pastMonth: []
+        pastMonth: [],
+        worldTotal: {}
       }
       componentDidMount = () =>{
           this.getDaily();
           this.getPastWeek();
           this.getPastMonth();
+          this.getWorldTotal();
       }
       getPastMonth = async () =>{
         const result = await axios.get('https://api.covidtracking.com/v1/us/daily.json').catch(error =>{console.log(error.message)})
@@ -28,6 +30,11 @@ export default class AppContextProvider extends React.Component {
       getDaily = async () =>{
           const result = await axios.get('https://api.covidtracking.com/v1/us/daily.json').catch(error =>{console.log(error.message)})
           this.setState({current: result.data[0]})
+      }
+      getWorldTotal = async () =>{
+          const result = await axios.get('https://api.covid19api.com/world/total').catch(error =>{console.log(error.message)})
+          this.setState({worldTotal: result.data})
+
       }
     render(){
     return (

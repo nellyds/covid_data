@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import Button from '@material-ui/core/Button';
 import StateSelect from '../components/Forms/StateSelect'
+import StateData from "../components/StateData"
+import Chip from '@material-ui/core/Chip';
+import { ChipGrid} from "../styles/styledComponents"
 export default function State() {
 
     const [selectedState, setSelectState] = useState('')
@@ -19,15 +22,16 @@ export default function State() {
 
     return (
         <div>
-            <p>
+            <ChipGrid>
                 {
                     selected.map(item => (
-                        <p onClick={removeFromArray} key={item}>{item}</p>
+                        <Chip color="blue" onClick={removeFromArray} label={item} key={item}></Chip>
                     ))
                 }
-            </p>
+            </ChipGrid>
             <StateSelect selectedState={selectedState} setSelectState={setSelectState} />
             <Button onClick={addToArray} variant="outlined" >Select</Button>
+            <StateData selected={selected} />
         </div>
     )
 }
