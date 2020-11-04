@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { AppContext } from "../context/appContext"
 import { makeStyles } from '@material-ui/core/styles';
-import { StatGrid, WorldDiv } from "../styles/styledComponents"
+import { StatGrid, CenterDiv } from "../styles/styledComponents"
 import StatCard from "../components/StatCard"
 import { getAverage, getField } from "../Util/DataParseMethods"
 import FieldSelect from "../components/Forms/FieldSelect"
@@ -14,18 +14,18 @@ import Select from '@material-ui/core/Select';
 export default function UnitedStates() {
     const useStyles = makeStyles((theme) => ({
         button: {
-          display: 'block',
-          marginTop: theme.spacing(2),
+            display: 'block',
+            marginTop: theme.spacing(2),
         },
         formControl: {
-          margin: theme.spacing(1),
-          minWidth: 120,
+            margin: theme.spacing(1),
+            minWidth: 120,
         },
         select: {
             width: 150,
             margin: 5
         }
-      }));
+    }));
 
     const { current, pastWeek, pastMonth } = useContext(AppContext)
     const classes = useStyles();
@@ -36,9 +36,9 @@ export default function UnitedStates() {
 
     const buildChart = async () => {
         if (dailyField !== '') {
-            if (dataRange === 'weekly'){
-            let result = await getField(pastWeek, dailyField)
-            setDataSet(result[dailyField].reverse())
+            if (dataRange === 'weekly') {
+                let result = await getField(pastWeek, dailyField)
+                setDataSet(result[dailyField].reverse())
             } else {
                 let result = await getField(pastMonth, dailyField)
                 console.log(result)
@@ -50,14 +50,13 @@ export default function UnitedStates() {
         <div>
             {current != null && pastWeek != null
                 ?
-                <div>
+                <CenterDiv>
                     <StatGrid>
                         <StatCard name='New Positive' average={getAverage(pastWeek, 'positiveIncrease')} number={current.positiveIncrease} />
                         <StatCard name='New Negative' average={getAverage(pastWeek, 'negativeIncrease')} number={current.negativeIncrease} />
                         <StatCard name='New Death' average={getAverage(pastWeek, 'deathIncrease')} number={current.deathIncrease} />
                     </StatGrid>
-
-        <FormControl>
+                    <FormControl>
                         <InputLabel>Data Range</InputLabel>
                         <Select class={classes.select}
                             value={dataRange}
@@ -72,8 +71,7 @@ export default function UnitedStates() {
                             ))}
                         </Select>
                         <FormHelperText>Choose a time range for data</FormHelperText>
-
-</FormControl>
+                    </FormControl>
                     <FieldSelect dailyField={dailyField} setDailyField={setDailyField} />
                     {dataSet.length > 0 ?
                         <TrendChart data={dataSet} /> :
@@ -83,8 +81,7 @@ export default function UnitedStates() {
                     <Button onClick={buildChart} variant="outlined" color="primary">
                         Build Chart
                 </Button>
-                </div>
-
+                </CenterDiv>
                 :
                 <div>
                     <p>Data not loaded</p>

@@ -18,7 +18,7 @@ export default class AppContextProvider extends React.Component {
           this.getPastWeek();
           this.getPastMonth();
           this.getWorldTotal();
-            this.getWorldData();
+            // this.getWorldData();
           
       }
       getPastMonth = async () =>{

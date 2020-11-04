@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 import axios from 'axios'
 import Button from '@material-ui/core/Button';
 import StateChart from "./StateChart"
+import {CenterDiv} from "../styles/styledComponents"
+
 function StateData(props){
 
     const [dataSets, setDataSets] = useState([])
@@ -23,12 +25,10 @@ function StateData(props){
         return result
     }
     return(
-        <div>
-
+        <CenterDiv>
             <StateChart data={dataSets} />
-
             <Button onClick={getAllStates} variant="outlined">Build Visualization</Button>
-        </div>
+        </CenterDiv>
     )
 }
 

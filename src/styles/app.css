@@ -15,7 +15,22 @@ body{
 .statAverage{
     font-family: 'Roboto Mono';
 }
+a{
+    text-decoration: none;
+    font-size: 30px;
+    margin: 5px;
+}
 
+a:visited{
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    color: white;
+    background-color: black;
+    padding: 2px;
+
+}
 @media (min-width: 416px){
     .number{
         font-size: 3.5em;

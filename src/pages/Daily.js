@@ -1,19 +1,15 @@
 import React, { useState, useContext } from 'react'
 import { AppContext } from "../context/appContext"
-import { WorldDiv } from "../styles/styledComponents"
+import { WorldDiv, CenterDiv } from "../styles/styledComponents"
 import Number from "../components/Number"
 
 
 function Daily() {
-    const { current, pastWeek, worldTotal } = useContext(AppContext)
-
-    const [dailyField, setDailyField] = useState('first')
-    const [dataSet, setDataSet] = useState([])
-
+    const { current,  worldTotal } = useContext(AppContext)
     return (<div>
         {current != null  && worldTotal != null
             ?
-            <div>
+            <CenterDiv>
                 <WorldDiv>
                     <p class="number">Total Confirmed</p>
                     <Number number={worldTotal.TotalConfirmed} field="totalConfirmed" />
@@ -22,13 +18,11 @@ function Daily() {
                     <p class="number">Total Recovered</p>
                     <Number number={worldTotal.TotalRecovered} field="totalRecovered" />
                 </WorldDiv>
-            </div>
+            </CenterDiv>
             :
             <p>Data not ready</p>
         }
-
     </div>
-
     )
 }
 

@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 import StateSelect from '../components/Forms/StateSelect'
 import StateData from "../components/StateData"
 import Chip from '@material-ui/core/Chip';
-import { ChipGrid, SelectForm, DataPoint} from "../styles/styledComponents"
+import { ChipGrid, SelectForm, DataPoint, CenterDiv} from "../styles/styledComponents"
 export default function State() {
 
     const [selectedState, setSelectState] = useState('')
@@ -21,7 +21,7 @@ export default function State() {
     }
 
     return (
-        <div>
+        <CenterDiv>
             <DataPoint>
             <p>Select a state from the drop down and press the select button to prepare data from it.  Add up to 5 states. </p>
             <p>Click the 'Build Visualization' button to generate a new chart.</p>
@@ -40,6 +40,6 @@ export default function State() {
                 }
             </ChipGrid>
             <StateData selected={selected} />
-        </div>
+        </CenterDiv>
     )
 }
